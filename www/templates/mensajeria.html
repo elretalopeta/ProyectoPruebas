@@ -1,0 +1,44 @@
+<ion-view view-title="Correo">
+    <div class='bar bar-subheader item-input-inset bar-light'>
+<label class="item-input-wrapper">
+<i class="icon ion-search placeholder-icon"></i>
+<input type="search" ng-model="busqueda" placeholder="Search">
+</label>                  
+</div>
+    <ion-content class='has-subheader'>
+    <ion-list>
+    <ion-item class="item-remove-animate item-avatar item-icon-right " data-uib="ionic/list_item_avatar" data-ver="0" ng-repeat="correo in info" href="#/tab/mensajeria/1">
+                            <img>
+                            <h2>{{correo.asunto}}</h2>
+                            <p>{{correo.emisor}}</p>
+                            <i class="icon ion-chevron-right icon-accessory"></i>
+                        </ion-item> 
+                   </ion-list>
+                   
+                        </ion-content>
+
+</ion-view>
+
+<script type="text/ng-template" id="templates/chat.html">
+<ion-view view-title="Chat">
+    <ion-content>
+    <ion-list>
+    <ion-item class="item-remove-animate item-avatar item-icon-right item-text-wrap" data-uib="ionic/list_item_avatar" data-ver="0" ng-repeat="correo in info">
+                            <img>
+                            <h2>{{correo.asunto}}</h2>
+                            <p>{{correo.contenido}}</p>
+                        </ion-item> 
+                   </ion-list>
+                   
+                        </ion-content>
+                            <ion-footer-bar keyboard-attach class="bar-stable item-input-inset" >
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="Type your message" ng-model="texto">
+      </label>
+      <button class="button button-clear" ng-click="enviar()">
+        Send
+      </button>
+    </ion-footer-bar>
+</ion-view>
+</script>
+

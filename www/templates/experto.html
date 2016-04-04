@@ -1,0 +1,134 @@
+<!-- Experto -->
+
+<!-- Header -->
+<ion-view view-title="Expertos">
+
+<!-- Sub Header -->
+<div class='bar bar-subheader item-input-inset bar-light'>
+<label class="item-input-wrapper">
+<i class="icon ion-search placeholder-icon"></i>
+<input type="search" ng-model="busqueda" placeholder="Search">
+</label>                  
+</div>
+
+<!-- Content -->
+<ion-content class='has-subheader'>
+<ion-list>
+<ion-item class="item-remove-animate item-avatar item-icon-right" data-uib="ionic/list_item_avatar" data-ver="0" href="#/tab/experto/{{expertos.id}}" ng-repeat="expertos in info | filter:busqueda">
+<img >
+<h2>{{expertos.nombre+" "+expertos.apellidos}}</h2>
+<p>{{expertos.cargo}}</p>
+<i class="icon ion-chevron-right icon-accessory"></i>
+</ion-item> 
+</ion-list>
+</ion-content>
+</ion-view>
+
+<!-- Experto Detalle -->
+<script type="text/ng-template" id="templates/experto-detalle.html">
+<ion-view view-title="Detalles">
+
+<ion-content >
+
+<ion-item class="item-thumbnail-left item-text-wrap">
+<img >     
+<h2>{{infoup.nombre+" "+infoup.apellidos}}</h2>
+<p> {{infoup.perfil}}</p>
+<button class="button button-balanced" ui-sref="experto-mensaje">
+Enviar Mensaje
+</button>
+</ion-item>
+
+<div class="item item-divider">
+Cursos
+</div>
+
+
+<ion-list ng-repeat="curso in info">
+<ion-item class="item-thumbnail-left item-text-wrap item-icon-right" ng-repeat="subcurso in curso" href="#/tab/experto-curso/{{subcurso.id}}">
+<img>     
+<h2>{{subcurso.curso}}</h2>
+<p>{{subcurso.descripcion | limitTo:120}}
+{{subcurso.descripcion.length > 100 ? '&hellip;':''}}</p>
+<i class="icon ion-chevron-right icon-accessory"></i>
+</ion-item>
+
+<ion-list> 
+
+</ion-content>
+</ion-view>
+</script>
+
+<!--
+/*
+<ion-item class="item-thumbnail-left item-text-wrap item-icon-right" ng-repeat="curso in info">
+<div ng-repeat="subcurso in curso">
+
+<img>     
+<h2>{{subcurso.id}}</h2>
+<p></p>
+<i class="icon ion-chevron-right icon-accessory"></i>
+</div>
+</div>
+</ion-item>
+<ul ng-repeat='curso in info'>
+<li class="item"  class="item-text-wrap"  ng-repeat="subcurso in curso">
+{{subcurso.id}}
+</li>
+</ul>
+*/  
+-->
+
+<!-- Experto Curso -->
+<script type="text/ng-template" id="templates/experto-curso.html">
+<!-- Content -->
+<ion-view view-title="Detalle" >
+<ion-content>
+<ion-list>
+<div class="list card">
+<div class="item-thumbnail-left item-text-wrap">
+<img class="full-image" > 
+<h4>{{info[0].titulo}}</h4>
+<p>{{info[0].descripcion}}<br/>
+<ion-button class="button button-balanced">Agregar a favoritos</button>
+</p>
+</div>
+<div class="item item-divider">Experto</div>
+<ion-item class="item item-avatar item-icon-right">
+<img>
+<h2>{{info[0].experto}}</h2>
+<p>{{info[0].cargo}}</p>
+
+</ion-item>
+<ul ng-repeat='curso in info'>
+<div class="item item-divider item-text-wrap">
+{{curso.modulo}}
+</div>
+<li class="item"  class="item-text-wrap"  ng-repeat='(key, value) in curso.sesion'>
+{{ value }} 
+</li>
+</ul>
+</div>
+</ion-list>
+</ion-content>
+</ion-view>
+</script>
+
+
+<!-- Experto Mensaje -->
+<script type="text/ng-template" id="templates/experto-mensaje.html">
+<ion-view view-title="Mensaje">
+<form name="sendMessageForm" ng-submit="sendMessage(sendMessageForm)" novalidate>
+<ion-footer-bar>
+<label class="item-input-wrapper">
+<textarea class="item-input-wrapper" ng-model="input.message" placeholder="Escribe..." required minlength="1" maxlength="1500" msd-elastic></textarea>
+</label>
+<div class="footer-btn-wrap">
+<button class="button button-icon icon ion-android-send footer-btn" type="submit"
+ng-disabled="!input.message || input.message === ''">
+</button>
+</div>
+</ion-footer-bar>
+</form>          
+</ion-view>
+</script>

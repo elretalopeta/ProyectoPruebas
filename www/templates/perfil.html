@@ -1,0 +1,39 @@
+  <ion-view view-title="Perfil">
+  <ion-content>
+  <ion-list>              
+  <ion-item class="item-thumbnail-left item-text-wrap item-icon-right">
+  <img >     
+  <h2>{{info.nombre+" "+info.apellidos}}</h2>
+  <!--<p>{{info.descripcion}}</p>-->
+  <p>{{info[0].perfil}}</p>
+  <p> <strong> Email:</strong> {{info[0].email}}</p>
+  <p> <strong>Sexo: </strong>{{info[0].sexo}}</p>
+  <p><strong> Ciudad: </strong>{{info[0].ciudad}}</p>
+  <p> <strong>Direccion: </strong>{{info[0].direccion}}</p>
+  <p> <strong>Codigo Postal: </strong>{{info[0].codigo_postal}}</p>
+  </ion-item>
+  </ion-item>       
+  <ion-item class="item item-divider">
+  Galardones
+  </ion-item>                       
+  <ion-item>
+  <i class="ion-home"></i>
+  <i class="ion-home"></i>
+  <i class="ion-home"></i>
+  </ion-item>
+  <ion-item class="item item-divider">
+  Mis Favoritos
+  </ion-item>
+  </ion-list>
+
+  <ion-list ng-repeat="curso in infodown">
+  <ion-item  class="item-thumbnail-left item-text-wrap item-icon-right">
+  <img>     
+  <h2>{{curso.titulo}}</h2>
+  <p> {{curso.experto}} </p>
+  <i class="icon ion-chevron-right icon-accessory"></i>
+  </ion-item>                
+  </ion-list>
+  
+  </ion-content>
+  </ion-view>

@@ -1,0 +1,94 @@
+<ion-view view-title="Blog">
+<ion-content>
+<ion-list ng-repeat="blog in info" >
+
+<ion-item class="item-thumbnail-left item-text-wrap item-icon-right" href="#/tab/blog-post/{{blog.id}}">
+<img >     
+<h2>{{blog.blog}}</h2>
+<p> {{blog.nombre+" "+ blog.apellidos}} </p>
+<i class="icon ion-chevron-right icon-accessory"></i>
+</ion-item>
+
+</ion-list>
+</ion-content>
+</ion-view>
+
+
+<script type="text/ng-template" id="templates/blog-post.html">
+<ion-view view-title="Post">
+<ion-content>
+<ion-list ng-repeat="blog in info" >
+
+<ion-item  class="item-thumbnail-left item-text-wrap item-icon-right" href="#/tab/post-detalle/{{blog.id}}">
+<img >     
+<h2>{{blog.post}}</h2>
+<p> {{blog.nombre+" "+blog.apellidos}} </p>
+<i class="icon ion-chevron-right icon-accessory"></i>
+</ion-item>
+
+</ion-list>
+</ion-content>
+</ion-view>
+</script>
+
+
+<script type="text/ng-template" id="templates/post-detalle.html">
+<ion-view view-title="Blog 2">
+<ion-content>
+<ion-list>
+<ion-item class="item-thumbnail-left item-text-wrap item-icon-right">
+<img>     
+<h2> {{info[0].titulo}}</h2>
+<p> {{info[0].contenido_post}}</p>
+</ion-item>
+</ion-list>
+<ion-list ng-repeat='comm in info[0].comentarios'>
+<ion-item class="item-thumbnail-left item-text-wrap item-icon-right">
+<img>     
+<h2>{{comm.contenido_post}}</h2>
+<p>{{comm.nombre}}</p>
+</ion-item>
+</ion-list>
+</ion-content>
+<ion-footer-bar keyboard-attach class="bar-stable item-input-inset" >
+<label class="item-input-wrapper">
+<input type="text" placeholder="Type your message" ng-model="texto">
+</label>
+<button class="button button-clear" ng-click="enviar()">
+Send
+</button>
+</ion-footer-bar>
+</ion-view>
+</script>
+
+<script type="text/ng-template" id="templates/blog-perfil.html">
+<ion-view view-title="Perfil 2">
+<ion-content>
+<ion-list>
+<ion-item class="item-thumbnail-left item-text-wrap item-icon-right" href="#/tab/blog-detalle">
+<img src="img/{{info.expertoimg}}.jpg">     
+<h2>{{info.experto}}</h2>
+<p>{{info.expertotipo}}</p>
+</ion-item>
+</ion-item>       
+<ion-item class="item item-divider">
+Galardones
+</ion-item>                       
+<ion-item>
+<i class="ion-home"></i>
+<i class="ion-home"></i>
+<i class="ion-home"></i>
+</ion-item>
+<ion-item class="item item-divider">
+Mis Favoritos
+</ion-item>
+<ion-item class="item-thumbnail-left item-text-wrap item-icon-right" href="#/tab/curso-detalle">
+<img src="img/curso.jpeg">    
+<h2>Pretty Hate Machine</h2>
+<p> Tirso </p>
+<i class="icon ion-chevron-right icon-accessory"></i> 
+</ion-item>                 
+</ion-list>
+</ion-content>
+</ion-view>
+</script>

@@ -1,0 +1,78 @@
+<!-- Curso -->
+
+<!-- Header -->
+<ion-view view-title="Cursos" >
+
+<!-- Sub Header -->
+<div class='bar bar-subheader item-input-inset bar-light'>
+<label class="item-input-wrapper">
+<i class="icon ion-search placeholder-icon"></i>
+<input type="search" ng-model="busqueda" placeholder="Buscar curso">
+</label>                  
+</div>
+
+<!-- Content -->
+<!-- src="img/{{prueba.cursoimg}}.jpeg" src="img/{{prueba.expertoimg}}.jpg" {{prueba.curso}} {{prueba.experto}}-->
+<ion-content class='has-subheader'>     
+<!--<ion-spinner icon="ripple" class="spinner-royal "></ion-spinner> Algo guapo -->
+<ion-list>
+<div class="list list-inset" ng-repeat="curso in info | filter:busqueda">
+<div-item class='item item-image item-body'>
+<img class="full-image" >
+</div-item>  
+<ion-item class="item-remove-animate item-avatar item-icon-right item-text-wrap" data-uib="ionic/list_item_avatar" data-ver="0"  href="#/tab/curso/{{curso.id}}">
+<img >
+<h2>{{curso.titulo}}</h2>
+<p>{{curso.nombre +" "+ curso.apellidos}}</p>
+<i class="icon ion-chevron-right icon-accessory"></i>
+</ion-item>                   
+</div>
+</ion-list>
+</ion-content>
+</ion-view>
+
+
+
+
+<!-- Curso Detalle -->
+
+<script type="text/ng-template" id="templates/curso-detalle.html">
+
+<!-- Content -->
+<ion-view view-title="Detalle" >
+<ion-content>
+<ion-list>
+<div class="list card">
+<div class="item-thumbnail-left item-text-wrap">
+<img class="full-image" > 
+
+
+<h4>{{info[0].titulo}}</h4>
+
+<p>{{info[0].descripcion}}<br/>
+
+
+<ion-button class="button button-balanced" ng-click="myFav()">{{fav}}</button>
+</p>
+</div>
+<div class="item item-divider">Experto</div>
+<ion-item class="item item-avatar item-icon-right" href="#/tab/experto" >
+<img>
+<h2>{{info[0].experto}}</h2>
+<p>{{info[0].cargo}}</p>
+<i class="icon ion-chevron-right icon-accessory"></i>
+</ion-item>
+
+<ul ng-repeat='curso in info'>
+<div class="item item-divider item-text-wrap">
+{{curso.modulo}}
+</div>
+<li class="item"  class="item-text-wrap"  ng-repeat='(key, value) in curso.sesion'>
+{{ value }} 
+</li>
+</ul>
+</div>
+</ion-list>
+</ion-content>
+</ion-view>
+</script>

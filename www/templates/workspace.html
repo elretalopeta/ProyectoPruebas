@@ -1,0 +1,34 @@
+<!-- Workspace -->
+<ion-view view-title="Workspace">
+<ion-content>
+<ion-list>
+<ion-item ng-repeat="prueba in info" class="item-thumbnail-left item-text-wrap item-icon-right" href="#/tab/workspace/{{prueba.id}}">
+<img>     
+<h2>{{prueba.curso}}</h2>
+<p> {{prueba.experto}} </p>
+<i class="icon ion-chevron-right icon-accessory"></i>
+</ion-item>
+</ion-list>
+</ion-content>
+</ion-view>
+
+<!-- Workspace Detalle -->
+<script type="text/ng-template" id="templates/workspace-detalle.html">
+<ion-view view-title="Modulos">
+<ion-content>
+
+<ion-list>
+<ion-item class="item-thumbnail-left item-text-wrap item-icon-right" href="#">
+<video class='videoPlayer' preload='metadata' vg-poster='data.poster'>
+	<source ng-src='img/video.avi'>
+</video>
+<h2>Pretty Hate Machine</h2>
+<p> Tirso </p>
+</ion-item>
+<ion-item>
+</ion-item>
+</ion-list>
+</ion-content>
+</ion-view>
+
+</script>
